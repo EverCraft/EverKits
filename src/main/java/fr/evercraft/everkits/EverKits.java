@@ -1,13 +1,11 @@
 package fr.evercraft.everkits;
 
-import org.spongepowered.api.event.cause.Cause;
 import org.spongepowered.api.plugin.Dependency;
 import org.spongepowered.api.plugin.Plugin;
 
-import fr.evercraft.everapi.event.ChatSystemEvent;
 import fr.evercraft.everapi.plugin.EPlugin;
-import fr.evercraft.everapi.services.ChatService;
-import fr.evercraft.everkits.command.sub.ECReload;
+import fr.evercraft.everkits.command.sub.EKReload;
+
 @Plugin(id = "fr.evercraft.everkits", 
 		name = "EverKits", 
 		version = "1.2", 
@@ -18,24 +16,24 @@ import fr.evercraft.everkits.command.sub.ECReload;
 		    @Dependency(id = "fr.evercraft.everapi", version = "1.2")
 		})
 public class EverKits extends EPlugin {
-	private ECConfig configs;
+	private EKConfig configs;
 	
-	private ECMessage messages;
+	private EKMessage messages;
 	
 	@Override
 	protected void onPreEnable() {		
-		this.configs = new ECConfig(this);
+		this.configs = new EKConfig(this);
 		
-		this.messages = new ECMessage(this);
+		this.messages = new EKMessage(this);
 		
-		this.getGame().getEventManager().registerListeners(this, new ECListener(this));
+		this.getGame().getEventManager().registerListeners(this, new EKListener(this));
 	}
 	
 	@Override
 	protected void onCompleteEnable() {
-		ECCommand command = new ECCommand(this);
+		EKCommand command = new EKCommand(this);
 		
-		command.add(new ECReload(this, command));
+		command.add(new EKReload(this, command));
 	}
 
 	protected void onReload(){
@@ -44,17 +42,16 @@ public class EverKits extends EPlugin {
 	
 	protected void onDisable() {
 	}
-	}
 
 	/*
 	 * Accesseurs
 	 */
 	
-	public ECMessage getMessages(){
+	public EKMessage getMessages(){
 		return this.messages;
 	}
 	
-	public ECConfig getConfigs() {
+	public EKConfig getConfigs() {
 		return this.configs;
 	}
 }

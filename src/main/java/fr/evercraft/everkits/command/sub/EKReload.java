@@ -12,13 +12,13 @@ import org.spongepowered.api.text.format.TextColors;
 import fr.evercraft.everapi.EAMessage.EAMessages;
 import fr.evercraft.everapi.plugin.EChat;
 import fr.evercraft.everapi.plugin.command.ESubCommand;
-import fr.evercraft.everkits.ECMessage.ECMessages;
-import fr.evercraft.everkits.ECPermissions;
-import fr.evercraft.everkits.ECCommand;
+import fr.evercraft.everkits.EKCommand;
+import fr.evercraft.everkits.EKMessage.EKMessages;
+import fr.evercraft.everkits.EKPermissions;
 import fr.evercraft.everkits.EverKits;
 
-public class ECReload extends ESubCommand<EverKits> {
-	public ECReload(final EverKits plugin, final ECCommand command) {
+public class EKReload extends ESubCommand<EverKits> {
+	public EKReload(final EverKits plugin, final EKCommand command) {
         super(plugin, command, "reload");
     }
 	
@@ -51,7 +51,7 @@ public class ECReload extends ESubCommand<EverKits> {
 
 	private boolean commandReload(final CommandSource player) {
 		this.plugin.reload();
-		player.sendMessage(EChat.of(ECMessages.PREFIX.get() + EAMessages.RELOAD_COMMAND.get()));
+		player.sendMessage(EChat.of(EKMessages.PREFIX.get() + EAMessages.RELOAD_COMMAND.get()));
 		return true;
 	}
 }

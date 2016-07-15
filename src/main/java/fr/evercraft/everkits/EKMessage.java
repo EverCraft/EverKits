@@ -12,13 +12,13 @@ import fr.evercraft.everapi.plugin.EChat;
 import fr.evercraft.everapi.plugin.file.EMessage;
 import fr.evercraft.everapi.plugin.file.EnumMessage;
 
-public class ECMessage extends EMessage {
+public class EKMessage extends EMessage {
 
-	public ECMessage(final EverKits plugin) {
-		super(plugin, ECMessages.values());
+	public EKMessage(final EverKits plugin) {
+		super(plugin, EKMessages.values());
 	}
 	
-	public enum ECMessages implements EnumMessage {
+	public enum EKMessages implements EnumMessage {
 		PREFIX("prefix",  							
 				"[&4Ever&6&lKits&f] "),
 		DESCRIPTION("description", 
@@ -29,11 +29,11 @@ public class ECMessage extends EMessage {
 	    private final Object english;
 	    private Object message;
 	    
-	    private ECMessages(final String path, final Object french) {   	
+	    private EKMessages(final String path, final Object french) {   	
 	    	this(path, french, french);
 	    }
 	    
-	    private ECMessages(final String path, final Object french, final Object english) {
+	    private EKMessages(final String path, final Object french, final Object english) {
 	    	Preconditions.checkNotNull(french, "Le message '" + this.name() + "' n'est pas définit");
 	    	
 	    	this.path = path;	    	

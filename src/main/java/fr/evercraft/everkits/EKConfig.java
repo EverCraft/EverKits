@@ -9,9 +9,9 @@ import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import fr.evercraft.everapi.plugin.file.EConfig;
 import fr.evercraft.everapi.plugin.file.EMessage;
 
-public class ECConfig extends EConfig {
+public class EKConfig extends EConfig {
 
-	public ECConfig(final EverKits plugin) {
+	public EKConfig(final EverKits plugin) {
 		super(plugin);
 	}
 	

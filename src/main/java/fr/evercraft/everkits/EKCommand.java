@@ -3,13 +3,12 @@ package fr.evercraft.everkits;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.text.Text;
 
-import fr.evercraft.everapi.plugin.EChat;
 import fr.evercraft.everapi.plugin.command.EParentCommand;
-import fr.evercraft.everkits.ECMessage.ECMessages;
+import fr.evercraft.everkits.EKMessage.EKMessages;
 
-public class ECCommand extends EParentCommand<EverKits> {
+public class EKCommand extends EParentCommand<EverKits> {
 	
-	public ECCommand(final EverKits plugin) {
+	public EKCommand(final EverKits plugin) {
         super(plugin, "everkits");
     }
 	
@@ -20,7 +19,7 @@ public class ECCommand extends EParentCommand<EverKits> {
 
 	@Override
 	public Text description(final CommandSource source) {
-		return EChat.of(this.plugin.getService().replace(EKMessages.DESCRIPTION.get()));
+		return EKMessages.DESCRIPTION.getText();
 	}
 
 	@Override

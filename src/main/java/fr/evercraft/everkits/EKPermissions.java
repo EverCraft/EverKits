@@ -6,7 +6,7 @@ import com.google.common.base.Preconditions;
 
 import fr.evercraft.everapi.plugin.EnumPermission;
 
-public enum ECPermissions implements EnumPermission {
+public enum EKPermissions implements EnumPermission {
 	EVERKITS("command"),
 	
 	HELP("help"),
@@ -16,7 +16,7 @@ public enum ECPermissions implements EnumPermission {
 	
 	private final String permission;
     
-    private ECPermissions(final String permission) {   	
+    private EKPermissions(final String permission) {   	
     	Preconditions.checkNotNull(permission, "La permission '" + this.name() + "' n'est pas définit");
     	
     	this.permission = permission;
