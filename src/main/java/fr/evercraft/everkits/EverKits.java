@@ -19,17 +19,18 @@ package fr.evercraft.everkits;
 import org.spongepowered.api.plugin.Dependency;
 import org.spongepowered.api.plugin.Plugin;
 
+import fr.evercraft.everapi.EverAPI;
 import fr.evercraft.everapi.plugin.EPlugin;
 import fr.evercraft.everkits.command.sub.EKReload;
 
-@Plugin(id = "fr.evercraft.everkits", 
+@Plugin(id = "everkits", 
 		name = "EverKits", 
-		version = "1.2", 
+		version = EverAPI.VERSION, 
 		description = "Manage Kit",
 		url = "http://evercraft.fr/",
 		authors = {"rexbut"},
 		dependencies = {
-		    @Dependency(id = "fr.evercraft.everapi", version = "1.2")
+		    @Dependency(id = "everapi", version = EverAPI.VERSION)
 		})
 public class EverKits extends EPlugin {
 	private EKConfig configs;
