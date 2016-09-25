@@ -30,7 +30,8 @@ import fr.evercraft.everkits.command.sub.EKReload;
 		url = "http://evercraft.fr/",
 		authors = {"rexbut"},
 		dependencies = {
-		    @Dependency(id = "everapi", version = EverAPI.VERSION)
+		    @Dependency(id = "everapi", version = EverAPI.VERSION),
+		    @Dependency(id = "spongeapi", version = EverAPI.SPONGEAPI_VERSION)
 		})
 public class EverKits extends EPlugin {
 	private EKConfig configs;
