@@ -17,6 +17,7 @@
 package fr.evercraft.everkits;
 
 public class EKListener {
+	@SuppressWarnings("unused")
 	private EverKits plugin;
 	
 	public EKListener(final EverKits plugin) {

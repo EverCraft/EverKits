@@ -33,7 +33,7 @@ import fr.evercraft.everkits.command.sub.EKReload;
 		    @Dependency(id = "everapi", version = EverAPI.VERSION),
 		    @Dependency(id = "spongeapi", version = EverAPI.SPONGEAPI_VERSION)
 		})
-public class EverKits extends EPlugin {
+public class EverKits extends EPlugin<EverKits> {
 	private EKConfig configs;
 	
 	private EKMessage messages;
