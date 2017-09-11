@@ -20,6 +20,8 @@ import org.spongepowered.api.plugin.Dependency;
 import org.spongepowered.api.plugin.Plugin;
 
 import fr.evercraft.everapi.EverAPI;
+import fr.evercraft.everapi.exception.PluginDisableException;
+import fr.evercraft.everapi.exception.ServerDisableException;
 import fr.evercraft.everapi.plugin.EPlugin;
 import fr.evercraft.everkits.command.sub.EKReload;
 
@@ -54,8 +56,8 @@ public class EverKits extends EPlugin<EverKits> {
 		command.add(new EKReload(this, command));
 	}
 
-	protected void onReload(){
-		this.reloadConfigurations();
+	protected void onReload() throws PluginDisableException, ServerDisableException {
+		super.onReload();
 	}
 	
 	protected void onDisable() {

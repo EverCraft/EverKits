@@ -23,7 +23,6 @@ import java.util.Map.Entry;
 import ninja.leaping.configurate.ConfigurationNode;
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import fr.evercraft.everapi.plugin.file.EConfig;
-import fr.evercraft.everapi.plugin.file.EMessage;
 
 public class EKConfig extends EConfig<EverKits> {
 
@@ -38,8 +37,7 @@ public class EKConfig extends EConfig<EverKits> {
 	
 	@Override
 	public void loadDefault() {
-		addDefault("DEBUG", false, "Displays plugin performance in the logs");
-		addDefault("LANGUAGE", EMessage.FRENCH, "Select language messages", "Examples : ", "  French : FR_fr", "  English : EN_en");
+		this.configDefault();
 		
 		addDefault("enable-format", true);
 		addDefault("enable-icons", true);
