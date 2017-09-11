@@ -16,7 +16,9 @@
  */
 package fr.evercraft.everkits;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -33,6 +35,14 @@ public class EKConfig extends EConfig<EverKits> {
 	public void reload() {
 		super.reload();
 		this.plugin.getELogger().setDebug(this.isDebug());
+	}
+	
+	@Override
+	public List<String> getHeader() {
+		return 	Arrays.asList(	"####################################################### #",
+								"                   EverKits (By rexbut)                  #",
+								"    For more information : https://docs.evercraft.fr     #",
+								"####################################################### #");
 	}
 	
 	@Override
