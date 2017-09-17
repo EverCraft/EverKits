@@ -32,7 +32,11 @@ public class EKMessage extends EMessage<EverKits> {
 	
 	public enum EKMessages implements EnumMessage {
 		PREFIX("PREFIX",  			"[&4Ever&6&lKits&f] "),
-		DESCRIPTION("DESCRIPTION", 	"Gestionnaire des kits");
+		DESCRIPTION("description", 	"Gestionnaire des kits"),
+		
+		PERMISSIONS_COMMANDS_EXECUTE("permissionsCommandsExecute", ""),
+		PERMISSIONS_COMMANDS_HELP("permissionsCommandsHelp", ""),
+		PERMISSIONS_COMMANDS_RELOAD("permissionsCommandsReload", "");
 		
 		private final String path;
 	    private final EMessageBuilder french;

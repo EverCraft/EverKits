@@ -16,33 +16,43 @@
  */
 package fr.evercraft.everkits;
 
-import org.spongepowered.api.command.CommandSource;
-
-import com.google.common.base.Preconditions;
-
 import fr.evercraft.everapi.plugin.EnumPermission;
+import fr.evercraft.everapi.plugin.file.EnumMessage;
+import fr.evercraft.everkits.EKMessage.EKMessages;
 
 public enum EKPermissions implements EnumPermission {
-	EVERKITS("command"),
+	EVERKITS("commands.execute", EKMessages.PERMISSIONS_COMMANDS_EXECUTE),
+	HELP("commands.help", EKMessages.PERMISSIONS_COMMANDS_HELP),
+	RELOAD("commands.reload", EKMessages.PERMISSIONS_COMMANDS_RELOAD);
 	
-	HELP("help"),
-	RELOAD("reload");
-	
-	private final static String prefix = "everkits";
+	private static final String PREFIX = "everkits";
 	
 	private final String permission;
+	private final EnumMessage message;
+	private final boolean value;
     
-    private EKPermissions(final String permission) {   	
-    	Preconditions.checkNotNull(permission, "La permission '" + this.name() + "' n'est pas définit");
-    	
-    	this.permission = permission;
+    private EKPermissions(final String permission, final EnumMessage message) {
+    	this(permission, message, false);
+    }
+    
+    private EKPermissions(final String permission, final EnumMessage message, final boolean value) {   	    	
+    	this.permission = PREFIX + "." + permission;
+    	this.message = message;
+    	this.value = value;
     }
 
+    @Override
     public String get() {
-		return EKPermissions.prefix + "." + this.permission;
+    	return this.permission;
 	}
-    
-    public boolean has(CommandSource player) {
-    	return player.hasPermission(this.get());
-    }
+
+	@Override
+	public boolean getDefault() {
+		return this.value;
+	}
+
+	@Override
+	public EnumMessage getMessage() {
+		return this.message;
+	}
 }
