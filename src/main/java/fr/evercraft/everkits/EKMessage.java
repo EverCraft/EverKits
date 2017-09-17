@@ -31,12 +31,12 @@ public class EKMessage extends EMessage<EverKits> {
 	}
 	
 	public enum EKMessages implements EnumMessage {
-		PREFIX("PREFIX",  			"[&4Ever&6&lKits&f] "),
-		DESCRIPTION("description", 	"Gestionnaire des kits"),
+		PREFIX("[&4Ever&6&lKits&f] "),
+		DESCRIPTION("Gestionnaire des kits"),
 		
-		PERMISSIONS_COMMANDS_EXECUTE("permissionsCommandsExecute", ""),
-		PERMISSIONS_COMMANDS_HELP("permissionsCommandsHelp", ""),
-		PERMISSIONS_COMMANDS_RELOAD("permissionsCommandsReload", "");
+		PERMISSIONS_COMMANDS_EXECUTE(""),
+		PERMISSIONS_COMMANDS_HELP(""),
+		PERMISSIONS_COMMANDS_RELOAD("");
 		
 		private final String path;
 	    private final EMessageBuilder french;
@@ -44,24 +44,23 @@ public class EKMessage extends EMessage<EverKits> {
 	    private EMessageFormat message;
 	    private EMessageBuilder builder;
 	    
-	    private EKMessages(final String path, final String french) {   	
-	    	this(path, EMessageFormat.builder().chat(new EFormatString(french), true));
+	    private EKMessages(final String french) {   	
+	    	this(EMessageFormat.builder().chat(new EFormatString(french), true));
 	    }
 	    
-	    private EKMessages(final String path, final String french, final String english) {   	
-	    	this(path, 
-	    		EMessageFormat.builder().chat(new EFormatString(french), true), 
+	    private EKMessages(final String french, final String english) {   	
+	    	this(EMessageFormat.builder().chat(new EFormatString(french), true), 
 	    		EMessageFormat.builder().chat(new EFormatString(english), true));
 	    }
 	    
-	    private EKMessages(final String path, final EMessageBuilder french) {   	
-	    	this(path, french, french);
+	    private EKMessages(final EMessageBuilder french) {   	
+	    	this(french, french);
 	    }
 	    
-	    private EKMessages(final String path, final EMessageBuilder french, final EMessageBuilder english) {
+	    private EKMessages(final EMessageBuilder french, final EMessageBuilder english) {
 	    	Preconditions.checkNotNull(french, "Le message '" + this.name() + "' n'est pas définit");
 	    	
-	    	this.path = path;	    	
+	    	this.path = this.resolvePath();	    	
 	    	this.french = french;
 	    	this.english = english;
 	    	this.message = french.build();
