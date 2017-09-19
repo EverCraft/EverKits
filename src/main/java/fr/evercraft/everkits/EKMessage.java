@@ -95,4 +95,9 @@ public class EKMessage extends EMessage<EverKits> {
 			this.builder = message;
 		}
 	}
+	
+	@Override
+	public EnumMessage getPrefix() {
+		return EKMessages.PREFIX;
+	}
 }
