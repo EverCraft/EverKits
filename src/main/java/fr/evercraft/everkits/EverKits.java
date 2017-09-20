@@ -74,4 +74,8 @@ public class EverKits extends EPlugin<EverKits> {
 	public EKConfig getConfigs() {
 		return this.configs;
 	}
+	
+	public EKPermissions[] getPermissions() {
+		return EKPermissions.values();
+	}
 }
